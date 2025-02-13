@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Transfers - Private Transport and Car Hire HTML Template" />
+	<meta name="description" content="Transfers - Private Transport and Car Hire HTML Template">
+	<meta name="author" content="themeenergy.com">
+	<title>Transfers - Booking Step 4</title>
+
+	<link rel="stylesheet" href="css/styler.css" />
+	<link rel="stylesheet" href="css/theme-pink.css" id="template-color" />
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="css/jquery-ui.theme.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/icons.css" />
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+
+	<!-- Toastify CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+	<!-- jsPDF -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div class="preloader">
+		<div id="followingBallsG">
+			<div id="followingBallsG_1" class="followingBallsG"></div>
+			<div id="followingBallsG_2" class="followingBallsG"></div>
+			<div id="followingBallsG_3" class="followingBallsG"></div>
+			<div id="followingBallsG_4" class="followingBallsG"></div>
+		</div>
+	</div>
+	<!-- //Preloader -->
+
+		<!-- Header -->
+		<header class="header" role="banner">
+			<div class="wrap">
+				<!-- Logo -->
+				<div class="logo">
+					<a href="index.html" title="swiftmove" style="font-size: large; font-weight: bold;"><img src="images/transfers.jpg" alt="swiftmove"  /> swiftmove</a>
+				</div>
+				<!-- //Logo -->
+				
+				<!-- Main Nav -->
+				<nav role="navigation" class="main-nav">
+					<ul>
+						<li class="active"><a href="index.html" title="">Home</a></li>
+						<!--<li><a href="destinations.html" title="Destinations">Destinations</a>
+							<ul>
+								<li><a href="destination-single.html" title="Single destination">Single destination</a></li>
+								<li><a href="destination-micro.html" title="Micro destination">Micro destination</a></li>
+							</ul>
+						</li>-->
+						<!--<li><a href="tailor-made.html" title="Tailor made">Custom Transportation</a></li>
+						<li><a href="blog.html" title="Blog">Blog</a>
+							<ul>
+								<li><a href="blog.html" title="Post">Blog list</a></li>
+								<li><a href="blog2.html" title="Post">Blog grid</a></li>
+								<li><a href="blog-single.html" title="Post">Post</a></li>
+							</ul>
+						</li>-->
+						<li><a href="contact.html" title="Contact">Contact</a></li>
+						<li><a href="#" title="Pages">Pages</a>
+							<div>
+
+								<div class="one-fourth">
+									<h2>Booking</h2>
+									<ul>
+										<li><a href="search-results.html" title="Search results page">Booking step 1</a></li>
+										<li><a href="booking-step1.html" title="Booking step 1">Booking step 2</a></li>
+										<li><a href="booking-step2.html" title="Booking step 2">Booking step 3</a></li>
+										<li><a href="booking-step3.html" title="Booking step 3">Booking step 4</a></li>
+									</ul>
+								</div>
+								<div class="one-fourth">
+									<h2>Corporate</h2>
+									<ul>
+										<li><a href="about.html" title="About u">About us</a></li>
+										<li><a href="services.html" title="Services">Services</a></li>
+										<li><a href="faq.html" title="Faq">Faq</a></li>
+										<li><a href="contact.html" title="Contact">Contact</a></li>
+									</ul>
+								</div>
+								<div class="one-fourth">
+									<h2>Special</h2>
+									<ul>
+										<li><a href="login.html" title="Login">Login</a></li>
+										<li><a href="register.html" title="Register">Register</a></li>
+										<li><a href="account.html" title="My account">My account</a></li>
+										<li><a href="error.html" title="404 error">404 error</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+				</nav>
+				<!-- //Main Nav -->
+			</div>
+		</header>
+		<!-- //Header -->
+	
+
+	<!-- Main -->
+	<main class="main" role="main">
+		<!-- Page info -->
+		<header class="site-title color">
+			<div class="wrap">
+				<div class="container">
+					<h1 class='confirmation-title'></h1>
+				</div>
+			</div>
+		</header>
+		<!-- //Page info -->
+
+		<div class="wrap">
+			<div class="row">
+				<div class="three-fourth">
+					<form class="box readonly">
+						<h3>Passenger details</h3>
+						<div class="f-row">
+							<div class="one-fourth">Name and surname</div>
+							<div class="three-fourth" id="passenger-name"></div>
+						</div>
+						<div class="f-row">
+							<div class="one-fourth">Mobile number</div>
+							<div class="three-fourth" id="mobile-number"></div>
+						</div>
+						<div class="f-row">
+							<div class="one-fourth">Email address</div>
+							<div class="three-fourth" id="email-address"></div>
+						</div>
+
+						<h3>Departure Transfer details</h3>
+						<div class="f-row">
+							<div class="one-fourth">Date</div>
+							<div class="three-fourth" id="departure-date"></div>
+						</div>
+						<div class="f-row">
+							<div class="one-fourth">From</div>
+							<div class="three-fourth" id="departure-location"></div>
+						</div>
+						<div class="f-row">
+							<div class="one-fourth">To</div>
+							<div class="three-fourth" id="arrival-location"></div>
+						</div>
+						<div class="f-row">
+							<div class="one-fourth">Vehicle</div>
+							<div class="three-fourth" id="vehicle-type"></div>
+						</div>
+						<div class="f-row">
+							<div class="one-fourth">Number plate</div>
+							<div class="three-fourth" id="numberPlate"></div>
+						</div>
+						
+						<div class="f-row">
+							<div class="one-fourth">Departure time</div>
+							<div class="three-fourth" id="departureTime"></div>
+						</div>
+
+						<h3>Other details</h3>
+						<div class="f-row">
+							<div class="one-fourth">Baggage & Extras</div>
+							<div class="three-fourth" id="return-baggage-details"></div>
+							<div class="three-fourth" id="payment-method"></div>
+						</div>
+
+						<h3>TOTAL: <span id="total-cost"></span></h3>
+
+						<!-- Book Button -->
+						<div class="actions">
+							<a href="booking-step1.html" class="btn medium back">Go back</a>
+							<button type="button" class="btn medium color right" id="book-button">Book</button>
+						</div>
+					</form>
+				</div>
+
+				<!-- Sidebar -->
+				<aside class="one-fourth sidebar right">
+					<div class="widget">
+						<h4>Need help booking?</h4>
+						<div class="textwidget">
+							<p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your needs.</p>
+							<p class="contact-data"><span class="icon icon-themeenergy_call black"></span> +1 555 555 555</p>
+						</div>
+					</div>
+					
+					<!-- Widget -->
+                    <div class="widget">
+                        <h4>Your Current Loyalty Points</h4>
+                        <p id="current-loyalty-points">Loading...</p>
+                        <p id="loyalty-points-value">Value: 0 Ksh</p>
+                        <label for="redeem-points">Redeem points:</label>
+                        <input type="number" id="redeem-points" min="0" max="200" placeholder="Enter points to redeem" />
+                        <button type="button" id="redeem-button" class="btn medium color right">Redeem</button>
+                    </div>
+				</aside>
+				<!-- //Sidebar -->
+			</div>
+		</div>
+	</main>
+	<!-- //Main -->
+
+	<!-- Footer -->
+	<footer class="footer black" role="contentinfo">
+		<div class="wrap">
+			<div class="row">
+				<article class="one-half">
+					<h6>About Us</h6>
+					<p>SwiftMove is an innovative platform designed for seamless transport management, offering real-time tracking and secure payments.</p>
+				</article>
+			</div>
+		</div>
+	</footer>
+	<!-- //Footer -->
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+
+<!-- Your custom scripts -->
+<script src="js/jquery.uniform.min.js"></script>
+<script src="js/jquery.slicknav.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/search.js"></script>
+<script src="js/scripts.js"></script>
+
+<script>
+    // Retrieve booking summary from localStorage
+    const bookingSummary = JSON.parse(localStorage.getItem("updatedBookingSummary"));
+
+    // Add 50 loyalty points to the booking summary
+    if (bookingSummary) {
+        bookingSummary.loyaltyPoints = 50; // Add loyalty points
+    }
+
+    // Update the page with the booking data
+    if (bookingSummary) {
+        document.getElementById("passenger-name").innerText = `${bookingSummary.name}`;
+        document.getElementById("mobile-number").innerText = `${bookingSummary.mobile}`;
+        document.getElementById("email-address").innerText = `${bookingSummary.email}`;
+
+        document.getElementById("departure-date").innerText = `${bookingSummary.date}`;
+        document.getElementById("departure-location").innerText = `${bookingSummary.depLocation}`;
+        document.getElementById("arrival-location").innerText = `${bookingSummary.arrLocation}`;
+        document.getElementById("vehicle-type").innerText = `${bookingSummary.transportType}`;
+        document.getElementById("numberPlate").innerText = `${bookingSummary.numberPlate}`;
+        document.getElementById("departureTime").innerText = `${bookingSummary.departureTime}`;
+
+        // Display baggage details
+        document.getElementById("return-baggage-details").innerText = `Baggage & extras cost: ${bookingSummary.baggageCost || 'N/A'} Ksh`;
+        document.getElementById("payment-method").innerText = `Payment method: ${bookingSummary.payment}`;
+
+        // Total cost
+        document.getElementById("total-cost").innerText = `Total: ${bookingSummary.totalCost} Ksh`;
+    }
+
+    // Fetch and display current loyalty points and their conversion value
+    function fetchLoyaltyPoints() {
+        const email = bookingSummary.email;
+
+        fetch(`http://localhost:3000/api/v1/loyalty-points?email=${email}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.loyaltyPoints !== undefined) {
+                    const points = data.loyaltyPoints;
+                    const valueInKsh = points * 0.5; // Conversion rate: 1 point = 0.5 Ksh
+                    localStorage.setItem('loyaltyPoints', points);
+                    document.getElementById('current-loyalty-points').innerText = `You have ${points} loyalty points.`;
+                    document.getElementById('loyalty-points-value').innerText = `Value: ${valueInKsh} Ksh`;
+                    document.getElementById('redeem-points').max = points; // Ensure the max redeemable points are shown
+                } else {
+                    document.getElementById('current-loyalty-points').innerText = "Error fetching loyalty points.";
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching loyalty points:", error);
+            });
+    }
+
+    // Fetch loyalty points when the page loads
+    fetchLoyaltyPoints();
+
+    // Redeem loyalty points and deduct from total cost if sufficient
+    document.getElementById('redeem-button').addEventListener('click', function () {
+        const pointsToRedeem = parseInt(document.getElementById('redeem-points').value);
+        const totalCost = bookingSummary.totalCost;
+
+        const loyaltyPoints = localStorage.getItem('loyaltyPoints');
+        const points = parseInt(loyaltyPoints);
+
+        console.log(pointsToRedeem, points, totalCost);
+
+        if (pointsToRedeem <= 0) {
+            alert("Please enter a valid number of points.");
+            return;
+        }
+
+        if (pointsToRedeem > points) {
+            alert("You do not have enough loyalty points to redeem.");
+            return;
+        }
+
+        // Convert points to Ksh
+        const pointsValue = pointsToRedeem * 0.5;
+
+        if (pointsValue >= totalCost) {
+            // Redeem loyalty points for payment
+            const remainingCost = totalCost - pointsValue;
+            if (remainingCost <= 0) {
+                bookingSummary.totalCost = 0; // If loyalty points cover the full cost
+            } else {
+                bookingSummary.totalCost = remainingCost;
+            }
+
+            // Update loyalty points
+            //bookingSummary.loyaltyPoints += 50;
+
+            // Proceed with booking after loyalty points are redeemed
+            alert(`You have successfully redeemed ${pointsToRedeem} points for payment. The remaining cost is ${bookingSummary.totalCost} Ksh. proceed to Book now`);
+
+            // Now, initiate the booking process
+            initiateBooking(true); // true to indicate payment was via loyalty points
+
+            document.querySelector('.confirmation-title').textContent = "Booking successful! Loyalty points redeemed.";
+
+            
+        } else {
+            alert("You do not have enough loyalty points to cover the full cost.");
+
+            // Proceed with the payment initiation process
+            initiatePayment();
+        }
+    });
+
+    document.getElementById('book-button').addEventListener('click', function () {
+
+
+        if (true) {
+            // Redeem loyalty points for paymen
+
+            // Now, initiate the booking process
+
+            initiatePayment();
+
+            setTimeout(function() {
+                document.querySelector('.confirmation-title').textContent = "Booking successful! Payment completed.";
+
+            }, 3000); // 5 seconds delay to simulate payment processing time
+
+
+        } else {
+            
+            
+            
+        }
+    });
+
+    // Function to initiate the payment process
+    function initiatePayment() {
+        if (bookingSummary) {
+            // Get the phone number and format it with the country code (254)
+            let phoneNumber = bookingSummary.mobile;
+            if (!phoneNumber.startsWith('254')) {
+                phoneNumber = '254' + phoneNumber;
+            }
+
+            const paymentData = {
+                phone: phoneNumber,
+                amount: bookingSummary.totalCost,
+            };
+
+            // Step 1: Send the payment request to the backend
+            fetch('http://localhost:3000/api/v1/payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(paymentData),
+            })
+            .then(response => response.json())
+            .then(paymentData => {
+                if (paymentData.ResponseCode === "0") {
+                    // Payment initiated successfully, show success toast for payment initiation
+                    Toastify({
+                        text: "Payment initiated successfully. Processing...",
+                        duration: 3000,
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "green",
+                    }).showToast();
+
+                    // Simulate a delay of 5 seconds before creating the booking (simulating payment processing time)
+                    setTimeout(function() {
+                        // Step 2: Send the booking data to the backend to create the booking
+                        initiateBooking(false); // false indicates payment was via traditional method
+                    }, 5000); // 5 seconds delay to simulate payment processing time
+                } else {
+                    // Show error toast for payment failure
+                    Toastify({
+                        text: paymentData.CustomerMessage || "Payment failed. Please try again.",
+                        duration: 3000,
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "red",
+                    }).showToast();
+                }
+            })
+            .catch(error => {
+                // Show network error toast for payment
+                Toastify({
+                    text: "An error occurred while processing the payment. Please try again.",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "red",
+                }).showToast();
+                console.error('Payment Error:', error);
+            });
+        }
+    }
+
+    // Function to handle the booking after payment or points redemption
+    function initiateBooking(paidWithPoints) {
+
+        const pointsToRedeem = parseInt(document.getElementById('redeem-points').value);
+
+        // Step 2: Send the booking data to the backend to create the booking and also including the points 
+        fetch('http://localhost:3000/api/v1/bookings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ...bookingSummary, paidWithPoints: paidWithPoints, pointsToRedeem: pointsToRedeem }),
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            if (data.message === "Booking created successfully") {
+                // Show success toast for booking creation
+                Toastify({
+                    text: paidWithPoints ? "Booking successful! Loyalty points redeemed." : "Booking successful! Payment completed.",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "green",
+                }).showToast();
+
+                if(paidWithPoints){
+                    // Update the loyalty points after redeeming
+                    fetchLoyaltyPoints();
+                }
+
+                //update the confirmation-title with the message confirmtatio and leave a default message if the message is not available
+
+                // Show the "Download Receipt" button
+                const receiptButton = document.createElement('button');
+                receiptButton.textContent = "Download Receipt";
+                receiptButton.classList.add('btn', 'medium', 'color', 'right');
+                document.querySelector('.actions').appendChild(receiptButton);
+
+                // On click, generate the receipt PDF
+                receiptButton.addEventListener('click', function () {
+                    generateReceipt(bookingSummary);
+                });
+            } else {
+                // Show error toast for booking failure
+                Toastify({
+                    text: data.message,
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "blue",
+                }).showToast();
+            }
+        })
+        .catch(error => {
+            // Show network error toast for booking
+            Toastify({
+                text: "An error occurred while creating your booking. Please try again.",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "red",
+            }).showToast();
+            console.error('Booking Error:', error);
+        });
+    }
+
+    // Function to generate the receipt as PDF with improved styling
+    function generateReceipt(bookingSummary) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Add title with a larger, bold font
+        doc.setFontSize(20);
+        doc.setFont("helvetica", "bold");
+        doc.text('Booking Receipt', 105, 15, null, null, 'center');
+        
+        // Add a line to separate the header
+        doc.setDrawColor(0);
+        doc.setLineWidth(0.5);
+        doc.line(10, 20, 200, 20);
+
+        // Add booking details with a more styled layout
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        
+        // Set the background color for sections and add a padding effect
+        let sectionYStart = 25;
+        const lineHeight = 10;
+        
+        // Title section
+        doc.setFillColor(220, 220, 220); // Light gray background
+        doc.rect(10, sectionYStart, 190, 10, 'F');
+        doc.setTextColor(0);
+        doc.text('Passenger Details', 15, sectionYStart + 7);
+        sectionYStart += lineHeight;
+
+        // Passenger Info Section
+        doc.setTextColor(0);  // Ensure text color is reset to black
+        doc.text(`Name: ${bookingSummary.name}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Email: ${bookingSummary.email}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Mobile: ${bookingSummary.mobile}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+
+        // Transfer Details Section
+        doc.setFillColor(220, 220, 220); // Light gray background
+        doc.rect(10, sectionYStart, 190, 10, 'F');
+        doc.setTextColor(0);
+        doc.text('Transfer Details', 15, sectionYStart + 7);
+        sectionYStart += lineHeight;
+
+        doc.text(`Date: ${bookingSummary.date}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Departure Location: ${bookingSummary.depLocation}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Arrival Location: ${bookingSummary.arrLocation}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Vehicle: ${bookingSummary.transportType}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Number Plate: ${bookingSummary.numberPlate}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Departure Time: ${bookingSummary.departureTime}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+
+        // Cost Details Section
+        doc.setFillColor(220, 220, 220); // Light gray background
+        doc.rect(10, sectionYStart, 190, 10, 'F');
+        doc.setTextColor(0);
+        doc.text('Cost Details', 15, sectionYStart + 7);
+        sectionYStart += lineHeight;
+
+        doc.text(`Baggage & Extras: ${bookingSummary.baggageCost || 'N/A'} Ksh`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+        doc.text(`Total Cost: ${bookingSummary.totalCost} Ksh`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+
+        // Loyalty points Section
+        doc.setFillColor(220, 220, 220); // Light gray background
+        doc.rect(10, sectionYStart, 190, 10, 'F');
+        doc.setTextColor(0);
+        doc.text('Loyalty Points', 15, sectionYStart + 7);
+        sectionYStart += lineHeight;
+
+        doc.text(`Loyalty Points: ${bookingSummary.loyaltyPoints}`, 15, sectionYStart);
+        sectionYStart += lineHeight;
+
+        // Add a footer with the company name and contact info
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text("SwiftMove | Contact: +1 555 555 555", 105, 280, null, null, "center");
+
+        // Save the document
+        doc.save('booking_receipt.pdf');
+    }
+</script>
+
+</body>
+</html>

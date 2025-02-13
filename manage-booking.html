@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Transfers - Private Transport and Car Hire HTML Template" />
+    <meta name="description" content="Transfers - Private Transport and Car Hire HTML Template">
+    <meta name="author" content="themeenergy.com">
+    <title>Manage Your Booking</title>
+
+    <link rel="stylesheet" href="css/styler.css" />
+    <link rel="stylesheet" href="css/theme-pink.css" id="template-color" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/icons.css" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <script src="https://use.fontawesome.com/e808bf9397.js"></script>
+
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Modern Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .modal-content h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .modal-content .f-row {
+            margin-bottom: 15px;
+        }
+        .modal-content label {
+            font-weight: bold;
+        }
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .modal-content .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .modal-content .actions button {
+            width: 48%;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .modal-content .actions #confirm-reschedule {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .modal-content .actions #cancel-reschedule {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Page Styling */
+        #reschedule-button, #cancel-button {
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+        }
+        #reschedule-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #cancel-button {
+            background-color: #f44336;
+            color: white;
+        }
+        #reschedule-button:hover, #cancel-button:hover {
+            opacity: 0.8;
+        }
+        #vehicle-details {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #vehicle-section {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #available-vehicles {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        #vehicle-info {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div id="followingBallsG">
+            <div id="followingBallsG_1" class="followingBallsG"></div>
+            <div id="followingBallsG_2" class="followingBallsG"></div>
+            <div id="followingBallsG_3" class="followingBallsG"></div>
+            <div id="followingBallsG_4" class="followingBallsG"></div>
+        </div>
+    </div>
+    <!-- //Preloader -->
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="wrap">
+            <div class="logo">
+                <a href="index.html" title="Transfers"><img src="images/transfers.jpg" alt="Transfers" /></a>
+            </div>
+        </div>
+    </header>
+    <!-- //Header -->
+
+    <!-- Main -->
+    <main class="main" role="main">
+        <!-- Page info -->
+        <header class="site-title color">
+            <div class="wrap">
+                <div class="container">
+                    <h1>Manage Your Booking</h1>
+                </div>
+            </div>
+        </header>
+        <!-- //Page info -->
+
+        <div class="wrap">
+            <div class="row">
+                <div class="three-fourth">
+                    <form class="box readonly">
+                        <h3>Booking details</h3>
+                        <div class="f-row">
+                            <div class="one-fourth">Name and surname</div>
+                            <div class="three-fourth" id="passenger-name"></div>
+                        </div>
+                        <div class="f-row">
+                            <div class="one-fourth">Mobile number</div>
+                            <div class="three-fourth" id="mobile-number"></div>
+                        </div>
+                        <div class="f-row">
+                            <div class="one-fourth">Email address</div>
+                            <div class="three-fourth" id="email-address"></div>
+                        </div>
+
+                        <h3>Departure Transfer details</h3>
+                        <div class="f-row">
+                            <div class="one-fourth">Date</div>
+                            <div class="three-fourth" id="departure-date"></div>
+                        </div>
+                        <div class="f-row">
+                            <div class="one-fourth">From</div>
+                            <div class="three-fourth" id="departure-location"></div>
+                        </div>
+                        <div class="f-row">
+                            <div class="one-fourth">To</div>
+                            <div class="three-fourth" id="arrival-location"></div>
+                        </div>
+                        <div class="f-row">
+                            <div class="one-fourth">Vehicle</div>
+                            <div class="three-fourth" id="vehicle-type"></div>
+                        </div>
+                        <div class="f-row">
+                            <div class="one-fourth">Number plate</div>
+                            <div class="three-fourth" id="numberPlate"></div>
+                        </div>
+                        
+                        <div class="f-row">
+                            <div class="one-fourth">Departure time</div>
+                            <div class="three-fourth" id="departureTime"></div>
+                        </div>
+
+                        <h3>Other details</h3>
+                        <div class="f-row">
+                            <div class="one-fourth">Baggage & Extras</div>
+                            <div class="three-fourth" id="return-baggage-details"></div>
+                            <div class="three-fourth" id="payment-method"></div>
+                        </div>
+
+                        <h3>TOTAL: <span id="total-cost"></span></h3>
+
+                        <!-- Cancel/Reschedule Button -->
+                        <div class="actions">
+                            <button type="button" class="btn medium color right" id="cancel-button">Cancel Booking</button>
+                            <button type="button" class="btn medium color right" id="reschedule-button">Reschedule</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="one-fourth sidebar right">
+                    <div class="widget">
+                        <h4>Need help?</h4>
+                        <div class="textwidget">
+                            <p>Call our customer service team for assistance.</p>
+                            <p class="contact-data"><span class="icon icon-themeenergy_call black"></span> +1 555 555 555</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Widget -->
+                    <div class="widget">
+                        <h4>Advertisment</h4>
+                        <a href="#"><img src="images/uploads/advertisment.jpg" alt="" /></a>
+                    </div>
+                </aside>
+                <!-- //Sidebar -->
+            </div>
+        </div>
+    </main>
+    <!-- //Main -->
+
+    <!-- Reschedule Modal -->
+    <div id="reschedule-modal" class="modal">
+        <div class="modal-content">
+            <h2>Reschedule Your Booking</h2>
+            <div class="f-row">
+                <label for="new-date">Select a new date</label>
+                <input type="date" id="new-date" />
+            </div>
+            <div class="f-row">
+                <label for="new-time">Select a new time</label>
+                <input type="time" id="new-time" />
+            </div>
+            <div class="f-row">
+                <h3>Available Vehicles:</h3>
+                <select id="available-vehicles">
+                    <!-- Dynamic vehicle options will be populated here -->
+                </select>
+            </div>
+            <div id="vehicle-info">
+                <!-- Selected vehicle details will be displayed here -->
+            </div>
+            <div class="actions">
+                <button type="button" id="confirm-reschedule" class="btn medium color right">Confirm Reschedule</button>
+                <button type="button" id="cancel-reschedule" class="btn medium back">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer black" role="contentinfo">
+        <div class="wrap">
+            <div class="row">
+                <article class="one-half">
+                    <h6>About Us</h6>
+                    <p>SwiftMove is an innovative platform designed for seamless transport management, offering real-time tracking and secure payments.</p>
+                </article>
+            </div>
+        </div>
+    </footer>
+    <!-- //Footer -->
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+
+    <!-- Your custom scripts -->
+    <script src="js/jquery.uniform.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/scripts.js"></script>
+
+
+    <script>
+        // Transport types data
+        const transportTypes = {
+            "Private Shuttle": { maxPeople: 10, maxSuitcases: 10, estimatedTime: "1 hour 30 mins", basePrice: 1500, numberPlate: "KBA 123A", departureTime: "08:00 AM" },
+            "Shared Shuttle": { maxPeople: 20, maxSuitcases: 15, estimatedTime: "2 hours", basePrice: 800, numberPlate: "KBD 456B", departureTime: "09:00 AM" },
+            "Private Bus": { maxPeople: 50, maxSuitcases: 50, estimatedTime: "2 hours 30 mins", basePrice: 5000, numberPlate: "KBC 789C", departureTime: "10:00 AM" },
+            "Shared Bus": { maxPeople: 60, maxSuitcases: 55, estimatedTime: "3 hours", basePrice: 1000, numberPlate: "KBE 012D", departureTime: "11:00 AM" }
+        };
+
+        // Retrieve booking summary from localStorage
+        const bookingSummary = JSON.parse(localStorage.getItem("updatedBookingSummary"));
+
+        // Update the page with the booking data
+        if (bookingSummary) {
+            document.getElementById("passenger-name").innerText = `${bookingSummary.name}`;
+            document.getElementById("mobile-number").innerText = `${bookingSummary.mobile}`;
+            document.getElementById("email-address").innerText = `${bookingSummary.email}`;
+
+            document.getElementById("departure-date").innerText = `${bookingSummary.date}`;
+            document.getElementById("departure-location").innerText = `${bookingSummary.depLocation}`;
+            document.getElementById("arrival-location").innerText = `${bookingSummary.arrLocation}`;
+            document.getElementById("vehicle-type").innerText = `${bookingSummary.transportType}`;
+            document.getElementById("numberPlate").innerText = `${bookingSummary.numberPlate}`;
+            document.getElementById("departureTime").innerText = `${bookingSummary.departureTime}`;
+
+            // Display baggage details
+            document.getElementById("return-baggage-details").innerText = `Baggage & extras cost: ${bookingSummary.baggageCost || 'N/A'} Ksh`;
+            document.getElementById("payment-method").innerText = `Payment method: ${bookingSummary.payment}`;
+
+            // Total cost
+            document.getElementById("total-cost").innerText = `Total: ${bookingSummary.totalCost} Ksh`;
+        }
+
+        // Cancel booking button functionality
+        document.getElementById("cancel-button").addEventListener('click', function () {
+            // Clear all displayed booking details
+            document.getElementById("passenger-name").innerText = '';
+            document.getElementById("mobile-number").innerText = '';
+            document.getElementById("email-address").innerText = '';
+            document.getElementById("departure-date").innerText = '';
+            document.getElementById("departure-location").innerText = '';
+            document.getElementById("arrival-location").innerText = '';
+            document.getElementById("vehicle-type").innerText = '';
+            document.getElementById("numberPlate").innerText = '';
+            document.getElementById("departureTime").innerText = '';
+            document.getElementById("return-baggage-details").innerText = '';
+            document.getElementById("payment-method").innerText = '';
+            document.getElementById("total-cost").innerText = '';
+
+            // Hide cancel/reschedule buttons
+            document.getElementById("cancel-button").style.display = 'none';
+            document.getElementById("reschedule-button").style.display = 'none';
+
+            // Show a cancellation message with a link/button to book another trip
+            const messageDiv = document.createElement('div');
+            messageDiv.innerHTML = `
+                <p>Your booking has been cancelled successfully.</p>
+                <a href="search-results.html" class="btn medium color">Book Another Trip</a>
+            `;
+            document.querySelector('.box').appendChild(messageDiv);
+
+            // Optionally, use Toastify for showing a message
+            Toastify({
+                text: "Your booking has been cancelled successfully.",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "red",
+            }).showToast();
+
+
+            localStorage.clear();
+
+
+        });
+
+        // Reschedule booking button functionality
+        document.getElementById("reschedule-button").addEventListener('click', function () {
+            // Show the reschedule modal
+            document.getElementById("reschedule-modal").style.display = "flex";
+
+            // Populate vehicle dropdown
+            const availableVehicles = Object.keys(transportTypes);
+            const vehicleSelect = document.getElementById("available-vehicles");
+
+            // Clear existing options
+            vehicleSelect.innerHTML = '';
+
+            // Populate with available vehicles
+            availableVehicles.forEach(vehicle => {
+                const option = document.createElement("option");
+                option.value = vehicle;
+                option.textContent = vehicle;
+                vehicleSelect.appendChild(option);
+            });
+        });
+
+        // Handle vehicle selection
+        document.getElementById("available-vehicles").addEventListener('change', function () {
+            const selectedVehicle = this.value;
+            const vehicleDetails = transportTypes[selectedVehicle];
+            const vehicleInfoDiv = document.getElementById("vehicle-info");
+
+            // Display selected vehicle details in the modal
+            vehicleInfoDiv.innerHTML = `
+                <p><strong>Max People:</strong> ${vehicleDetails.maxPeople}</p>
+                <p><strong>Max Suitcases:</strong> ${vehicleDetails.maxSuitcases}</p>
+                <p><strong>Estimated Time:</strong> ${vehicleDetails.estimatedTime}</p>
+                <p><strong>Base Price:</strong> ${vehicleDetails.basePrice} Ksh</p>
+                <p><strong>Departure Time:</strong> ${vehicleDetails.departureTime}</p>
+                <p><strong>Number Plate:</strong> ${vehicleDetails.numberPlate}</p>
+            `;
+
+            // Update vehicle info on main page
+            document.getElementById("vehicle-type").innerText = selectedVehicle;
+            document.getElementById("numberPlate").innerText = vehicleDetails.numberPlate;
+            document.getElementById("departureTime").innerText = vehicleDetails.departureTime;
+        });
+
+        // Close reschedule modal if cancelled
+        document.getElementById("cancel-reschedule").addEventListener('click', function () {
+            document.getElementById("reschedule-modal").style.display = "none";
+        });
+
+        // Confirm reschedule functionality
+        document.getElementById("confirm-reschedule").addEventListener('click', function () {
+            const newDate = document.getElementById("new-date").value;
+            const newTime = document.getElementById("new-time").value;
+            const selectedVehicle = document.getElementById("available-vehicles").value;
+
+            // Handle the reschedule logic here (possibly sending an update to the backend)
+            Toastify({
+                text: `Your booking has been rescheduled to ${newDate} at ${newTime}.`,
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "blue",
+            }).showToast();
+
+            // Update the displayed details on the main page
+            const vehicleDetails = transportTypes[selectedVehicle];
+            document.getElementById("departure-date").innerText = newDate;
+            document.getElementById("departureTime").innerText = newTime;
+            document.getElementById("vehicle-type").innerText = selectedVehicle;
+            document.getElementById("numberPlate").innerText = vehicleDetails.numberPlate;
+
+            // Close the modal after confirmation
+            document.getElementById("reschedule-modal").style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

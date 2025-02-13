@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+
+  <link rel="stylesheet" href="css/styler.css" />
+  <link rel="stylesheet" href="css/theme-pink.css" id="template-color" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/icons.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Admin Panel</h3>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li><a href="admin.html">Dashboard</a></li>
+        <li><a href="users.html">Manage Users</a></li>
+        <li><a href="bookings.html">Bookings</a></li>
+        <li><a href="payments.html">Payments</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" style="margin-left: 250px; padding: 20px;">
+    <header style="background-color: #D1698C; padding: 20px; color: #fff; border-radius: 8px;">
+      <h2>User Profile</h2>
+    </header>
+
+    <div class="profile-details" style="margin-top: 20px; background-color: white; padding: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+      <p><strong>Name:</strong> <span id="user-name"></span></p>
+      <p><strong>Email:</strong> <span id="user-email"></span></p>
+      <p><strong>Phone:</strong> <span id="user-phone"></span></p>
+      <p><strong>Location:</strong> <span id="user-location"></span></p>
+    </div>
+  </div>
+
+  <script>
+    async function fetchUserProfile() {
+      const userId = new URLSearchParams(window.location.search).get("id");
+      const response = await fetch(`http://localhost:3000/api/v1/users/${userId}`);
+      const user = await response.json();
+
+      document.getElementById("user-name").textContent = `${user.firstName} ${user.lastName}`;
+      document.getElementById("user-email").textContent = user.email;
+      document.getElementById("user-phone").textContent = user.phone;
+      document.getElementById("user-location").textContent = user.location;
+    }
+
+    window.onload = fetchUserProfile;
+  </script>
+</body>
+</html>

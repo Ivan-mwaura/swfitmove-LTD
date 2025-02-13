@@ -1,0 +1,137 @@
+@use "../components/styles/variables" as vars;
+@use "../components/styles/mixins" as *;
+
+.route-pricing {
+  padding: vars.$padding;
+
+  h2 {
+    color: vars.$primary;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: vars.$padding;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: vars.$padding;
+
+    input {
+      padding: 10px;
+      margin-right: 10px;
+      border-radius: vars.$border-radius;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      background-color: vars.$background;
+      color: vars.$text-primary;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: vars.$border-radius;
+      font-size: 14px;
+      background-color: vars.$accent;
+      border: 1px solid #ccc;
+      color: vars.$text-primary;
+    }
+  }
+
+  .add-button {
+    background-color: vars.$primary;
+    color: vars.$background;
+    padding: 10px 20px;
+    border-radius: vars.$border-radius;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: vars.$padding;
+
+    &:hover {
+      background-color: vars.$accent;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: vars.$padding;
+
+    th, td {
+      padding: vars.$padding;
+      border: 1px solid vars.$accent;
+      text-align: left;
+    }
+
+    th {
+      background-color: vars.$secondary;
+      color: vars.$text-primary;
+    }
+
+    td {
+      color: vars.$text-secondary;
+    }
+
+    button {
+      background-color: vars.$primary;
+      color: vars.$background;
+      padding: 5px 10px;
+      border-radius: vars.$border-radius;
+      cursor: pointer;
+      margin-right: 5px;
+
+      &:hover {
+        background-color: vars.$accent;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-content {
+      background-color: vars.$background;
+      padding: vars.$padding;
+      border-radius: vars.$border-radius;
+      width: 60%;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+      button {
+        margin-top: 10px;
+        background-color: vars.$primary;
+        padding: 10px 20px;
+        color: vars.$background;
+        border-radius: vars.$border-radius;
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$padding;
+
+    label {
+      font-size: 14px;
+      color: vars.$text-primary;
+
+      input, select {
+        padding: 10px;
+        border-radius: vars.$border-radius;
+        border: 1px solid vars.$accent;
+        background-color: vars.$background;
+        font-size: 14px;
+        color: vars.$text-secondary;
+      }
+    }
+  }
+}

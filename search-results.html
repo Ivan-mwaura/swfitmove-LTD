@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Transfers - Private Transport and Car Hire HTML Template" />
+	<meta name="description" content="Transfers - Private Transport and Car Hire HTML Template">
+	<meta name="author" content="themeenergy.com">
+	<title>Transfers - Search results</title>
+
+	<link rel="stylesheet" href="css/styler.css" />
+	<link rel="stylesheet" href="css/theme-pink.css" id="template-color" />
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="css/jquery-ui.theme.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/icons.css" />
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+
+	<!-- Toastr CSS for error messages -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div class="preloader">
+		<div id="followingBallsG">
+			<div id="followingBallsG_1" class="followingBallsG"></div>
+			<div id="followingBallsG_2" class="followingBallsG"></div>
+			<div id="followingBallsG_3" class="followingBallsG"></div>
+			<div id="followingBallsG_4" class="followingBallsG"></div>
+		</div>
+	</div>
+	<!-- //Preloader -->
+		<!-- Header -->
+		<header class="header" role="banner">
+			<div class="wrap">
+				<!-- Logo -->
+				<div class="logo">
+					<a href="index.html" title="swiftmove" style="font-size: large; font-weight: bold;"><img src="images/transfers.jpg" alt="swiftmove"  /> swiftmove</a>
+				</div>
+				<!-- //Logo -->
+				
+				<!-- Main Nav -->
+				<nav role="navigation" class="main-nav">
+					<ul>
+						<li class="active"><a href="index.html" title="">Home</a></li>
+						<!--<li><a href="destinations.html" title="Destinations">Destinations</a>
+							<ul>
+								<li><a href="destination-single.html" title="Single destination">Single destination</a></li>
+								<li><a href="destination-micro.html" title="Micro destination">Micro destination</a></li>
+							</ul>
+						</li>-->
+						<!--<li><a href="tailor-made.html" title="Tailor made">Custom Transportation</a></li>
+						<li><a href="blog.html" title="Blog">Blog</a>
+							<ul>
+								<li><a href="blog.html" title="Post">Blog list</a></li>
+								<li><a href="blog2.html" title="Post">Blog grid</a></li>
+								<li><a href="blog-single.html" title="Post">Post</a></li>
+							</ul>
+						</li>-->
+						<li><a href="contact.html" title="Contact">Contact</a></li>
+						<li><a href="#" title="Pages">Pages</a>
+							<div>
+
+								<div class="one-fourth">
+									<h2>Booking</h2>
+									<ul>
+										<li><a href="search-results.html" title="Search results page">Booking step 1</a></li>
+										<li><a href="booking-step1.html" title="Booking step 1">Booking step 2</a></li>
+										<li><a href="booking-step2.html" title="Booking step 2">Booking step 3</a></li>
+										<li><a href="booking-step3.html" title="Booking step 3">Booking step 4</a></li>
+									</ul>
+								</div>
+								<div class="one-fourth">
+									<h2>Corporate</h2>
+									<ul>
+										<li><a href="about.html" title="About u">About us</a></li>
+										<li><a href="services.html" title="Services">Services</a></li>
+										<li><a href="faq.html" title="Faq">Faq</a></li>
+										<li><a href="contact.html" title="Contact">Contact</a></li>
+									</ul>
+								</div>
+								<div class="one-fourth">
+									<h2>Special</h2>
+									<ul>
+										<li><a href="login.html" title="Login">Login</a></li>
+										<li><a href="register.html" title="Register">Register</a></li>
+										<li><a href="account.html" title="My account">My account</a></li>
+										<li><a href="error.html" title="404 error">404 error</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+				</nav>
+				<!-- //Main Nav -->
+			</div>
+		</header>
+		<!-- //Header -->
+	
+
+	<!-- Main -->
+	<main class="main" role="main">
+		<!-- Search -->
+		<div class="advanced-search color">
+			<div class="wrap">
+				<form role="form">
+					<!-- Row -->
+					<div class="f-row">
+						<div class="form-group datepicker one-third">
+							<label for="dep-date">Departure date and time</label>
+							<input type="datetime-local" id="dep-date" value="2014-08-28T10:00" />
+						</div>
+						
+						<div class="form-group select one-third">
+							<label>Pick up location</label>
+							<select id="dep-location">
+								<option>Select location</option>
+								<optgroup label="Nairobi">
+									<option value="Kencom">Kencom</option>
+									<option value="Machakos Bus Station">Machakos Bus Station</option>
+									<option value="Gikambura">Gikambura</option>
+									<option value="Njiru">Njiru</option>
+									<option value="Ruiru">Ruiru</option>
+								</optgroup>
+								<optgroup label="Kikuyu">
+									<option value="Kikuyu Town">Kikuyu Town</option>
+								</optgroup>
+								<optgroup label="Thika">
+									<option value="Thika Town">Thika Town</option>
+								</optgroup>
+								<optgroup label="Juja">
+									<option value="Juja Town">Juja Town</option>
+								</optgroup>
+								<optgroup label="Ngong">
+									<option value="Ngong Town">Ngong Town</option>
+								</optgroup>
+								<optgroup label="Kitengela">
+									<option value="Kitengela Town">Kitengela Town</option>
+								</optgroup>
+								<optgroup label="Makongeni">
+									<option value="Makongeni">Makongeni</option>
+								</optgroup>
+							</select>
+						</div>
+						
+						<div class="form-group select one-third">
+							<label>Drop off location</label>
+							<select id="arr-location">
+								<option>Select location</option>
+								<optgroup label="Nairobi">
+									<option value="Kencom">Kencom</option>
+									<option value="Machakos Bus Station">Machakos Bus Station</option>
+									<option value="Gikambura">Gikambura</option>
+									<option value="Njiru">Njiru</option>
+									<option value="Ruiru">Ruiru</option>
+								</optgroup>
+								<optgroup label="Kikuyu">
+									<option value="Kikuyu Town">Kikuyu Town</option>
+								</optgroup>
+								<optgroup label="Thika">
+									<option value="Thika Town">Thika Town</option>
+								</optgroup>
+								<optgroup label="Juja">
+									<option value="Juja Town">Juja Town</option>
+								</optgroup>
+								<optgroup label="Ngong">
+									<option value="Ngong Town">Ngong Town</option>
+								</optgroup>
+								<optgroup label="Kitengela">
+									<option value="Kitengela Town">Kitengela Town</option>
+								</optgroup>
+								<optgroup label="Makongeni">
+									<option value="Makongeni">Makongeni</option>
+								</optgroup>
+							</select>
+						</div>
+					</div>
+					<!-- //Row -->
+
+					<!-- Row -->
+					<div class="">
+						<div class="">
+							<button type="button" id="check-button" class="btn large black">Check Available Transport</button>
+						</div>
+					</div>
+					<!--// Row -->
+				</form>
+			</div>
+		</div>
+		<!-- //Search -->
+
+		<div class="wrap">
+			<div class="row">
+				<!--- Content -->
+				<div class="full-width content">
+					<h2>Select transfer type for your DEPARTURE</h2>
+
+					<div class="results" id="transport-results">
+						<!-- Dynamically generated transport options go here -->
+					</div>
+
+					<div class="results" id="return-results">
+						<!-- Dynamically generated return transport options go here -->
+					</div>
+				</div>
+				<!--- //Content -->
+			</div>
+		</div>
+	</main>
+	<!-- //Main -->
+
+	<!-- Footer -->
+	<footer class="footer black" role="contentinfo">
+		<div class="wrap">
+			<div class="row">
+				<!-- Column -->
+				<article class="one-half">
+					<h6>About us</h6>
+					<p>SwiftMove is a cutting-edge platform designed for seamless transport management, offering real-time tracking and secure payments.</p>
+				</article>
+				<!-- //Column -->
+			</div>
+			<div class="copy">
+				<p>Copyright 2025, SwiftMove. All rights reserved. </p>
+			</div>
+		</div>
+	</footer>
+	<!-- //Footer -->
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+
+	<!-- Toastr JS for error messages -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+	<!-- Your custom scripts -->
+	<script src="js/jquery.uniform.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/search.js"></script>
+	<script src="js/scripts.js"></script>
+
+	<script>
+const transportTypes = {
+    "Shuttle": { maxPeople: 20, maxSuitcases: 15, estimatedTime: "1 hour 30 mins", basePrice: 100, numberPlate: "KBA 123A", departureTimes: ["08:00 AM", "10:00 AM", "12:00 PM"] },
+    "Bus": { maxPeople: 50, maxSuitcases: 50, estimatedTime: "2 hours", basePrice: 150, numberPlate: "KBD 456B", departureTimes: ["09:00 AM", "11:00 AM", "01:00 PM"] }
+};
+
+const locationPricing = {
+    "Kencom": { "Shuttle": 150, "Bus": 200 },
+    "Machakos Bus Station": { "Shuttle": 100, "Bus": 150 },
+    "Gikambura": { "Shuttle": 120, "Bus": 180 },
+    "Njiru": { "Shuttle": 130, "Bus": 190 },
+    "Ruiru": { "Shuttle": 110, "Bus": 160 },
+    "Kikuyu Town": { "Shuttle": 100, "Bus": 150 },
+    "Thika Town": { "Shuttle": 140, "Bus": 190 },
+    "Juja Town": { "Shuttle": 110, "Bus": 160 },
+    "Ngong Town": { "Shuttle": 120, "Bus": 170 },
+    "Kitengela Town": { "Shuttle": 130, "Bus": 180 },
+    "Makongeni": { "Shuttle": 110, "Bus": 160 }
+};
+
+	
+		// Function to convert time from HH:MM AM/PM format to Date object for comparison
+		function convertToTime(dateString) {
+			const timeParts = dateString.split(" ");
+			const time = timeParts[0].split(":");
+			const ampm = timeParts[1];
+	
+			let hours = parseInt(time[0]);
+			let minutes = parseInt(time[1]);
+	
+			if (ampm === "PM" && hours !== 12) {
+				hours += 12;
+			} else if (ampm === "AM" && hours === 12) {
+				hours = 0;
+			}
+	
+			return new Date(1970, 0, 1, hours, minutes);
+		}
+	
+		// Function to display available transport options based on selected locations and time
+		function displayTransportOptions() {
+			const depLocation = document.getElementById('dep-location').value;
+			const arrLocation = document.getElementById('arr-location').value;
+			const selectedTime = document.getElementById('dep-date').value;  // Get selected date-time
+			const transportContainer = document.getElementById('transport-results');
+			transportContainer.innerHTML = "";  // Clear previous results
+	
+			// Check if all fields are filled
+			if (!depLocation || !arrLocation || !selectedTime) {
+				toastr.error('Please fill in all fields (Departure date and time, Pick up location, and Drop off location).');
+				return;
+			}
+	
+			const selectedTimeObj = convertToTime(selectedTime);  // Convert selected time to Date object
+			const availableTransport = [];
+			const alternativeTransport = [];
+	
+			// Loop through transport types and filter based on time
+			for (const transport in transportTypes) {
+				const transportDetails = transportTypes[transport];
+				const price = locationPricing[depLocation] && locationPricing[depLocation][transport]
+					? locationPricing[depLocation][transport]
+					: transportDetails.basePrice;
+	
+				// Filter vehicles based on the selected time
+				transportDetails.departureTimes.forEach((departureTime) => {
+					const transportTime = convertToTime(departureTime);
+					if (selectedTimeObj <= transportTime) {
+						// If selected time is earlier or equal, show it as a matching ride
+						availableTransport.push({
+							...transportDetails,
+							price: price,
+							transport: transport,
+							departureTime: departureTime
+						});
+					} else {
+						// If selected time is later, show it as an alternative ride
+						alternativeTransport.push({
+							...transportDetails,
+							price: price,
+							transport: transport,
+							departureTime: departureTime
+						});
+					}
+				});
+			}
+	
+			// Display message if no transport available for selected time
+			if (availableTransport.length === 0) {
+				transportContainer.innerHTML = `
+					<p>No available transport options for the selected time.</p>
+					<h3>Showing available options for next time slots:</h3>
+				`;
+	
+				// Display alternative transport options
+				alternativeTransport.forEach((item) => {
+					const transportElement = document.createElement('article');
+					transportElement.classList.add('result');
+
+					let transportImage = '';
+        if (item.transport === "Shuttle") {
+            transportImage = `<div class="one-fourth heightfix"><img src="images/uploads/van.jpg" alt="${item.transport}" /></div>`;
+        } else {
+            transportImage = `<div class="one-fourth heightfix"><img src="images/uploads/bus.jpg" alt="${item.transport}" /></div>`;
+        }
+
+					
+					transportElement.innerHTML = `
+					 ${transportImage}
+						
+						<div class="one-half heightfix">
+							<h3>${item.transport} <a href="javascript:void(0)" class="trigger color" title="Read more">?</a></h3>
+							<ul>
+								<li><span class="icon icon-themeenergy_user-3"></span><p>Max <strong>${item.maxPeople} people</strong></p></li>
+								<li><span class="icon icon-themeenergy_travel-bag"></span><p>Max <strong>${item.maxSuitcases} suitcases</strong></p></li>
+								<li><span class="icon icon-themeenergy_clock"></span><p>Estimated time <strong>${item.estimatedTime}</strong></p></li>
+								<li><span class="icon icon-themeenergy_car"></span><p>Vehicle Number Plate: <strong>${item.numberPlate}</strong></p></li>
+								<li><span class="icon icon-themeenergy_clock"></span><p>Departure time: <strong>${item.departureTime}</strong></p></li>
+							</ul>
+						</div>
+						<div class="one-fourth heightfix">
+							<div>
+								<div class="price">${item.price} <small>KES</small></div>
+								<span class="meta">per passenger</span>
+								<a href="javascript:void(0)" class="btn grey large" onclick="saveSelection('${item.transport}', ${item.price}, '${depLocation}', '${arrLocation}')">Select</a>
+							</div>
+						</div>
+					`;
+					transportContainer.appendChild(transportElement);
+				});
+			} else {
+				// If available transport found for selected time, display them
+				availableTransport.forEach((item) => {
+					const transportElement = document.createElement('article');
+					transportElement.classList.add('result');
+
+					let transportImage = '';
+        if (item.transport === "Shuttle") {
+            transportImage = `<div class="one-fourth heightfix"><img src="images/uploads/van.jpg" alt="${item.transport}" /></div>`;
+        } else {
+            transportImage = `<div class="one-fourth heightfix"><img src="images/uploads/bus.jpg" alt="${item.transport}" /></div>`;
+        }
+					transportElement.innerHTML = `
+
+					${transportImage}
+					
+						
+						<div class="one-half heightfix">
+							<h3>${item.transport} <a href="javascript:void(0)" class="trigger color" title="Read more">?</a></h3>
+							<ul>
+								<li><span class="icon icon-themeenergy_user-3"></span><p>Max <strong>${item.maxPeople} people</strong></p></li>
+								<li><span class="icon icon-themeenergy_travel-bag"></span><p>Max <strong>${item.maxSuitcases} suitcases</strong></p></li>
+								<li><span class="icon icon-themeenergy_clock"></span><p>Estimated time <strong>${item.estimatedTime}</strong></p></li>
+								<li><span class="icon icon-themeenergy_car"></span><p>Vehicle Number Plate: <strong>${item.numberPlate}</strong></p></li>
+								<li><span class="icon icon-themeenergy_clock"></span><p>Departure time: <strong>${item.departureTime}</strong></p></li>
+							</ul>
+						</div>
+						<div class="one-fourth heightfix">
+							<div>
+								<div class="price">${item.price} <small>KES</small></div>
+								<span class="meta">per passenger</span>
+								<a href="javascript:void(0)" class="btn grey large" onclick="saveSelection('${item.transport}', ${item.price}, '${depLocation}', '${arrLocation}')">Select</a>
+							</div>
+						</div>
+					`;
+					transportContainer.appendChild(transportElement);
+				});
+			}
+		}
+	
+		// Save selection to localStorage
+		function saveSelection(transportType, price, depLocation, arrLocation, date, numberPlate, departureTime, ) {
+			const selectedDetails = {
+				transportType: transportType,
+				price: price,
+				depLocation: depLocation,
+				arrLocation: arrLocation,
+				date: document.getElementById('dep-date').value,
+				numberPlate: transportTypes[transportType].numberPlate,
+				departureTime: transportTypes[transportType].departureTimes
+			};
+	
+			localStorage.setItem('selectedTransport', JSON.stringify(selectedDetails));
+			alert('Transport selected and details saved to local storage');
+	
+			window.location.href = 'booking-step1.html';
+		}
+	
+		// Event listener for button click to display available transport options
+		document.getElementById('check-button').addEventListener('click', displayTransportOptions);
+	</script>
+	
+</body>
+
+</html>

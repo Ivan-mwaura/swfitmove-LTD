@@ -1,0 +1,131 @@
+@use "../components/styles/variables" as vars;
+@use "../components/styles/mixins" as *;
+@use "sass:math";
+
+.users {
+  padding: vars.$padding;
+  color: vars.$text-primary;
+
+  h1 {
+    color: vars.$primary;
+    font-size: 28px;
+    margin-bottom: vars.$padding;
+    text-align: center;
+  }
+
+  .user-table-container {
+    margin-top: vars.$padding;
+
+    .search-input {
+      padding: 10px;
+      border-radius: vars.$border-radius;
+      border: 1px solid vars.$accent;
+      font-size: 14px;
+      margin-bottom: 15px;
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: vars.$padding;
+
+      th,
+      td {
+        padding: math.div(vars.$padding, 2);
+        border: 1px solid vars.$accent;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      th {
+        background-color: vars.$secondary;
+        color: vars.$text-primary;
+      }
+
+      td {
+        color: vars.$text-secondary;
+      }
+
+      .view-button,
+      .delete-button {
+        background-color: vars.$primary;
+        color: vars.$background;
+        padding: 8px 12px;
+        border: none;
+        border-radius: vars.$border-radius;
+        cursor: pointer;
+        margin-right: 5px;
+
+        &:hover {
+          background-color: vars.$accent;
+        }
+      }
+
+      .delete-button {
+        background-color: #E74C3C;
+        &:hover {
+          background-color: #C0392B;
+        }
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: vars.$background;
+    padding: vars.$padding;
+    border-radius: vars.$border-radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px;
+
+    h2 {
+      color: vars.$primary;
+      font-size: 22px;
+      margin-bottom: vars.$padding;
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+      color: vars.$text-secondary;
+      margin-bottom: 10px;
+    }
+
+    .close-modal {
+      background-color: vars.$secondary;
+      color: vars.$text-primary;
+      padding: 10px 20px;
+      border: none;
+      border-radius: vars.$border-radius;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:hover {
+        background-color: vars.$primary;
+        color: vars.$background;
+      }
+    }
+  }
+}

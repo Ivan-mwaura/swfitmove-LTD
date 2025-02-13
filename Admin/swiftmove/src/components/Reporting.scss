@@ -1,0 +1,82 @@
+@use "../components//styles//variables" as vars;
+@use "../components//styles/mixins" as *;
+
+.reporting {
+  padding: vars.$padding;
+  font-family: vars.$font-family;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: vars.$primary;
+  }
+
+  .statistics,
+  .payment-analytics {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  .stat-card,
+  .payment-card {
+    flex: 1;
+    background-color: vars.$background;
+    padding: vars.$padding;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: vars.$border-radius;
+    color: vars.$text-primary;
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: vars.$primary;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 1.1rem;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+
+  // For tablet and smaller devices
+  @include tablet {
+    .statistics,
+    .payment-analytics {
+      gap: 10px;
+    }
+
+    .stat-card,
+    .payment-card {
+      flex: 1 1 100%;
+    }
+  }
+
+  // Responsive styling for smaller devices like mobile
+  @include mobile {
+    padding: 10px;
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .stat-card,
+    .payment-card {
+      flex: 1 1 100%;
+      margin-bottom: 15px;
+    }
+  }
+}

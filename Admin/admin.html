@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  
+  <!-- Linking the theme CSS files from SwiftMove template -->
+  <link rel="stylesheet" href="css/styler.css" />
+  <link rel="stylesheet" href="css/theme-pink.css" id="template-color" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/icons.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <script src="https://use.fontawesome.com/e808bf9397.js"></script>
+</head>
+<body class="home">
+  <!-- Sidebar -->
+  <div class="sidebar" style="background-color: #E7B8C3; color: #fff; width: 250px; height: 100vh; position: fixed; top: 0; left: 0; padding-top: 20px; box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);">
+    <div class="sidebar-header" style="padding: 20px; text-align: center; background-color: #D1698C;">
+      <h3>Admin Panel</h3>
+    </div>
+    <div class="sidebar-menu">
+        <ul>
+            <li><a href="users.html">Manage Users</a></li>
+            <li><a href="bookings.html">Bookings</a></li>
+            <li><a href="payments.html">Payments</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" style="margin-left: 250px; padding: 20px;">
+    <header style="background-color: #D1698C; padding: 20px; color: #fff; border-radius: 8px;">
+      <h2>Welcome to the Admin Dashboard</h2>
+      <button class="btn btn-primary" style="background-color: #D1698C; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Create New Booking</button>
+    </header>
+
+    <!-- Dashboard Summary -->
+    <section class="dashboard-summary" style="display: flex; gap: 20px; margin-top: 20px;">
+      <div class="summary-card" style="background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); padding: 20px; width: 22%; border-radius: 8px; text-align: center;">
+        <h3 style="color: #D1698C; font-size: 20px;">Total Bookings</h3>
+        <p style="font-size: 25px; font-weight: bold; color: #343a40;">120</p>
+      </div>
+      <div class="summary-card" style="background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); padding: 20px; width: 22%; border-radius: 8px; text-align: center;">
+        <h3 style="color: #D1698C; font-size: 20px;">Total Payments</h3>
+        <p style="font-size: 25px; font-weight: bold; color: #343a40;">95</p>
+      </div>
+      <div class="summary-card" style="background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); padding: 20px; width: 22%; border-radius: 8px; text-align: center;">
+        <h3 style="color: #D1698C; font-size: 20px;">Total Vehicles</h3>
+        <p style="font-size: 25px; font-weight: bold; color: #343a40;">50</p>
+      </div>
+      <div class="summary-card" style="background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); padding: 20px; width: 22%; border-radius: 8px; text-align: center;">
+        <h3 style="color: #D1698C; font-size: 20px;">Total Revenue</h3>
+        <p style="font-size: 25px; font-weight: bold; color: #343a40;">$200,000</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" style="background-color: #E7B8C3; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; color: white;">
+    <p>&copy; 2025 SwiftMove Admin Panel</p>
+  </footer>
+
+  <style>
+    /* Sidebar Styling */
+    .sidebar-menu ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .sidebar-menu ul li {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .sidebar-menu ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .sidebar-menu ul li:hover {
+      background-color: #C13E72;
+    }
+
+    .sidebar-menu ul li:hover a {
+      color: white;
+    }
+
+    /* Main Content Styling */
+    .main-content {
+      padding: 20px;
+    }
+
+    .dashboard-summary {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .summary-card {
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 22%;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .summary-card h3 {
+      color: #D1698C;
+      font-size: 20px;
+    }
+
+    .summary-card p {
+      font-size: 25px;
+      font-weight: bold;
+      color: #343a40;
+    }
+
+    .btn {
+      background-color: #D1698C;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .footer {
+      background-color: #E7B8C3;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      color: white;
+    }
+  </style>
+</body>
+
+</html>

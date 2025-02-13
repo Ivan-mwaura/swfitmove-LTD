@@ -1,0 +1,128 @@
+@use "../components/styles/variables" as vars;
+@use "../components/styles/mixins" as *;
+@use "sass:math"; // Import the math module for division
+
+.dashboard {
+  padding: vars.$padding;
+  color: vars.$text-primary;
+
+  .dashboard-header {
+    margin-bottom: 50px;
+    padding: vars.$padding;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      color: vars.$primary;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: vars.$primary;
+      color: vars.$background;
+      border: none;
+      border-radius: vars.$border-radius;
+      padding: 10px 20px;
+      cursor: pointer;
+      &:hover {
+        background-color: vars.$accent;
+      }
+    }
+  }
+
+  .dashboard-cards {
+    display: flex;
+    gap: 20px;
+    .card {
+      background-color: vars.$secondary;
+      padding: vars.$padding;
+      border-radius: vars.$border-radius;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      text-align: center;
+      h2 {
+        color: vars.$primary;
+      }
+      p {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .dashboard-charts {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    .chart {
+      background-color: vars.$background;
+      padding: vars.$padding;
+      border-radius: vars.$border-radius;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      h2 {
+        color: vars.$primary;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .recent-activities,
+  .notifications-widget {
+    margin-top: vars.$padding;
+    padding: vars.$padding;
+    border-radius: vars.$border-radius;
+    background-color: vars.$secondary;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    h2 {
+      color: vars.$primary;
+    }
+  }
+
+  .dashboard-table {
+    margin-top: vars.$padding;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      th, td {
+        padding: 10px;
+        border: 1px solid vars.$accent;
+      }
+      th {
+        background-color: vars.$secondary;
+        color: vars.$text-primary;
+      }
+      td {
+        color: vars.$text-secondary;
+        &.high-risk {
+          color: red;
+        }
+        &.medium-risk {
+          color: orange;
+        }
+        &.low-risk {
+          color: green;
+        }
+      }
+    }
+  }
+
+  .to-do-list {
+    margin-top: vars.$padding;
+    padding: vars.$padding;
+    background-color: vars.$secondary;
+    border-radius: vars.$border-radius;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    h2 {
+      color: vars.$primary;
+    }
+    ul {
+      font-size: 14px;
+      color: vars.$text-secondary;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+}

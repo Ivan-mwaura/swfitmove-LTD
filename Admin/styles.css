@@ -1,0 +1,53 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.sidebar-title {
+    padding: 20px;
+    font-size: 1.5rem;
+    background-color: #f8f9fa;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+#sidebar {
+    background-color: #f8f9fa;
+    padding-top: 20px;
+}
+
+#sidebar .nav-item {
+    margin-bottom: 10px;
+}
+
+#sidebar .nav-link {
+    font-size: 1.1rem;
+}
+
+#sidebar .nav-link.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+}
+
+.card-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+}
