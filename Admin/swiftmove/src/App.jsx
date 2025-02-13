@@ -11,9 +11,10 @@ import RoutePricing from "./components/RoutePricing";
 import "./main.scss";
 
 
+
 const App = () => {
 
-
+ 
 
   return (
     <Layout>
@@ -21,6 +22,7 @@ const App = () => {
       <div className="main-content">
 
         <Routes>
+          
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
           <Route path="/booking" element={<Booking />} />
@@ -28,6 +30,8 @@ const App = () => {
           <Route path="/reporting" element={<Reporting />} />
           <Route path="/route-pricing" element={<RoutePricing />} />
 
+          
+        
         </Routes>
         
       </div> 

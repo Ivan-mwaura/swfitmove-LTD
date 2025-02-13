@@ -10,4 +10,8 @@ router.put('/bookings/:id', bookingController.updateBooking);  // Update a booki
 router.delete('/bookings/:id', bookingController.cancelBooking);  // Cancel a booking
 router.get('/bookings/filter', bookingController.filterBookings);  // Search/filter bookings
 
+router.post('/bookingsByEmail', bookingController.getBookingsByEmail);
+
+
+
 module.exports = router;

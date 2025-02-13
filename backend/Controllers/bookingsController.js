@@ -113,3 +113,31 @@ exports.filterBookings = async (req, res) => {
     res.status(500).json({ error: 'Failed to filter bookings' });
   }
 };
+
+//get Boookings for a specific user
+// Get bookings for a specific user by their email
+exports.getBookingsByEmail = async (req, res) => {
+  const { email } = req.body;  // Get email from the request body
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  try {
+    const bookings = await Booking.findAll({
+      where: {
+        confirmEmail: email,
+      },
+    });
+
+    if (bookings.length === 0) {
+      return res.status(404).json({ message: 'No bookings found for this email' });
+    }
+
+    res.status(200).json(bookings);  // Return the bookings as a response
+  } catch (error) {
+    console.error('Error fetching bookings:', error);
+    res.status(500).json({ error: 'Failed to fetch bookings' });
+  }
+};
+

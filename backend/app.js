@@ -7,6 +7,7 @@ const bookingRoutes = require('./Routes/bookingRoutes');  // Import the booking 
 const vehicleRoutes = require('./Routes/vehicleRoutes');  // Import the vehicle routes
 const reportRoutes = require('./Routes/reportRoutes');  // Import the report routes
 const routePricingRoutes = require('./Routes/RoutePricingRoutes')
+const adminRoutes = require('./Routes/adminLogin');  // Import the admin routes
 const cors = require('cors');  // Enable Cross-Origin Resource Sharing (CORS)
 
 
@@ -24,6 +25,7 @@ app.use('/api/v1', bookingRoutes);  // Use booking routes for the `/api/bookings
 app.use('/api/v1', vehicleRoutes);  // Use vehicle routes for the `/api/vehicles` endpoint
 app.use('/api/v1/reports', reportRoutes);  // Use report routes for the `/api/reports` endpoint
 app.use('/api/v1', routePricingRoutes);  // Use route pricing routes for the `/api/routes` endpoint
+app.use('/api/v1', adminRoutes);  // Use admin routes for the `/api/admin` endpoint
 
 
 // Start the server and connect to MySQL

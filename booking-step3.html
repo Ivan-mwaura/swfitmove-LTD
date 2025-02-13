@@ -290,58 +290,64 @@
     // Fetch loyalty points when the page loads
     fetchLoyaltyPoints();
 
-    // Redeem loyalty points and deduct from total cost if sufficient
     document.getElementById('redeem-button').addEventListener('click', function () {
-        const pointsToRedeem = parseInt(document.getElementById('redeem-points').value);
-        const totalCost = bookingSummary.totalCost;
+    const pointsToRedeem = parseInt(document.getElementById('redeem-points').value);
+    const totalCost = bookingSummary.totalCost;
 
-        const loyaltyPoints = localStorage.getItem('loyaltyPoints');
-        const points = parseInt(loyaltyPoints);
+    const loyaltyPoints = localStorage.getItem('loyaltyPoints');
+    const points = parseInt(loyaltyPoints);
 
-        console.log(pointsToRedeem, points, totalCost);
+    console.log(pointsToRedeem, points, totalCost);
 
-        if (pointsToRedeem <= 0) {
-            alert("Please enter a valid number of points.");
-            return;
-        }
+    // If no points are entered
+    if (pointsToRedeem <= 0) {
+        alert("Please enter a valid number of points.");
+        return;
+    }
 
-        if (pointsToRedeem > points) {
-            alert("You do not have enough loyalty points to redeem.");
-            return;
-        }
+    // If the points entered are greater than available points
+    if (pointsToRedeem > points) {
+        alert("You do not have enough loyalty points to redeem.");
+        return;
+    }
 
-        // Convert points to Ksh
-        const pointsValue = pointsToRedeem * 0.5;
+    // Calculate the value of the points being redeemed (1 point = 0.5 Ksh)
+    const pointsValue = pointsToRedeem * 0.5;
 
-        if (pointsValue >= totalCost) {
-            // Redeem loyalty points for payment
-            const remainingCost = totalCost - pointsValue;
-            if (remainingCost <= 0) {
-                bookingSummary.totalCost = 0; // If loyalty points cover the full cost
-            } else {
-                bookingSummary.totalCost = remainingCost;
-            }
+    // Check if loyalty points cover the full total cost
+    if (pointsValue >= totalCost) {
+        // If loyalty points cover the full cost
+        bookingSummary.totalCost = 0; // Set total cost to 0
+        alert(`You have successfully redeemed ${pointsToRedeem} points for payment. The remaining cost is ${bookingSummary.totalCost} Ksh. Proceeding with booking .`);
 
-            // Update loyalty points
-            //bookingSummary.loyaltyPoints += 50;
+        // Proceed with booking after loyalty points are redeemed
+        initiateBooking(true); // true indicates payment was via loyalty points
+        document.querySelector('.confirmation-title').textContent = "Booking successful! Loyalty points redeemed.";
 
-            // Proceed with booking after loyalty points are redeemed
-            alert(`You have successfully redeemed ${pointsToRedeem} points for payment. The remaining cost is ${bookingSummary.totalCost} Ksh. proceed to Book now`);
+        setTimeout(() => {
+            window.location.href = "account.html";
+        }, 5000); // 5 seconds delay to simulate booking processing time
+    } else if (pointsValue < totalCost) {
+        // If loyalty points don't cover the full cost
+        const remainingCost = totalCost - pointsValue; // Calculate remaining balance
+        bookingSummary.totalCost = remainingCost; // Set the remaining cost
 
-            // Now, initiate the booking process
-            initiateBooking(true); // true to indicate payment was via loyalty points
+        alert(`You have successfully redeemed ${pointsToRedeem} points for payment. The remaining balance to pay is ${remainingCost} Ksh.`);
 
-            document.querySelector('.confirmation-title').textContent = "Booking successful! Loyalty points redeemed.";
+        // Proceed with the payment initiation process for the remaining balance
+        initiatePayment();
 
-            
-        } else {
-            alert("You do not have enough loyalty points to cover the full cost.");
+        setTimeout(function() {
+            document.querySelector('.confirmation-title').textContent = "Booking successful! Payment completed.";
+        }, 5000); // 5 seconds delay to simulate payment processing time
 
-            // Proceed with the payment initiation process
-            initiatePayment();
-        }
-    });
+        setTimeout(() => {
+            window.location.href = "account.html";
+        }, 5000); // 5 seconds delay to simulate booking processing time.href = "account.html";
 
+
+    }
+});
     document.getElementById('book-button').addEventListener('click', function () {
 
 
@@ -351,11 +357,17 @@
             // Now, initiate the booking process
 
             initiatePayment();
+            initiateBooking(false); // false indicates payment was via M-Pesa
 
-            setTimeout(function() {
-                document.querySelector('.confirmation-title').textContent = "Booking successful! Payment completed.";
+            document.querySelector('.confirmation-title').textContent = "Booking successful! Payment completed.";
 
-            }, 3000); // 5 seconds delay to simulate payment processing time
+
+                
+                setTimeout(() => {
+            window.location.href = "account.html";
+        }, 5000); // 5 seconds delay to simulate booking processing time
+
+
 
 
         } else {
@@ -400,11 +412,6 @@
                         backgroundColor: "green",
                     }).showToast();
 
-                    // Simulate a delay of 5 seconds before creating the booking (simulating payment processing time)
-                    setTimeout(function() {
-                        // Step 2: Send the booking data to the backend to create the booking
-                        initiateBooking(false); // false indicates payment was via traditional method
-                    }, 5000); // 5 seconds delay to simulate payment processing time
                 } else {
                     // Show error toast for payment failure
                     Toastify({

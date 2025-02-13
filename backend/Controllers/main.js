@@ -239,8 +239,7 @@ const createBooking = async (req, res) => {
       paidWithPoints,
     } = req.body;
 
- 
-  
+    console.log(req.body);
 
 
     // Validate email format
